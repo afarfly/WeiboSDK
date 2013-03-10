@@ -1,18 +1,18 @@
 //
-//  HomeViewController.m
+//  ListViewController.m
 //  ZhiWeiboPhone
 //
 //  Created by junmin liu on 12-8-25.
 //  Copyright (c) 2012年 idfsoft. All rights reserved.
 //
 
-#import "HomeViewController.h"
+#import "ListViewController.h"
 
-@interface HomeViewController ()
+@interface ListViewController ()
 
 @end
 
-@implementation HomeViewController
+@implementation ListViewController
 @synthesize statuses = _statuses;
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -28,8 +28,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"Home";
-        self.tabBarItem.title = @"Home";
+        self.title = @"List";
+        self.tabBarItem.title = @"List";
         _statuses = [[NSMutableArray alloc]init];
     }
     return self;
@@ -107,12 +107,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    TweetViewCell1 *cell = (TweetViewCell1*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    TweetViewCell *cell = (TweetViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
-        cell = [[[TweetViewCell1 alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier]autorelease];
+        cell = [[[TweetViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier]autorelease];
     }
     
-    cell.tweetTextLayer.delegate = self;
+    //cell.tweetTextLayer.delegate = self;
     
     TweetViewCellLayout *layout = [_statuses objectAtIndex:indexPath.row];
     cell.layout = layout;
@@ -174,10 +174,9 @@
      */
 }
 
-- (void)tweetLayer:(TweetLayer *)layer didSelectLinkWithTweetLink:(TweetLink *)tweetLink {
+- (void)didSelectLinkWithTweetLink:(TweetLink *)tweetLink {
+    
     NSLog(@"didSelectLinkWithTweetLink: %@, %u", tweetLink.url, tweetLink.linkType);
-    
-    
     
     switch (tweetLink.linkType) {
         case TweetLinkTypeURL:

@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "TweetLable.h"
 
 @interface ProfileViewController ()
 
@@ -28,6 +29,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    TweetLable *lable = [[TweetLable alloc] initWithMessage:@"我是haha中文[/20]aa测我是haha中文[/30]aa测试我是haha中文[/40]aa测试"];
+    lable.backgroundColor = [UIColor colorWithRed:222/255.f green:235/255.f blue:244/255.f alpha:0.3f];
+//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(100.0f,100.0f, 150, 100)];
+//    view.backgroundColor = [UIColor redColor];
+//    [view addSubview:lable];
+    [self.view addSubview:lable];
 }
 
 - (void)viewDidUnload

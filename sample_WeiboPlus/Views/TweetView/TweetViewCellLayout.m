@@ -23,6 +23,8 @@
 
 @synthesize tweetAuthorProfileImageRect = _tweetAuthorProfileImageRect;
 @synthesize retweetAuthorProfileImageRect = _retweetAuthorProfileImageRect;
+@synthesize tweetImageRect = _tweetImageRect;
+@synthesize retweetImageRect = _retweetImageRect;
 @synthesize tweetAuthorTextRect = _tweetAuthorTextRect;
 @synthesize retweetAuthorTextRect = _retweetAuthorTextRect;
 @synthesize tweetTimeTextRect = _tweetTimeTextRect;
@@ -135,9 +137,21 @@
         _retweetTextRect = CGRectMake(30, top, retweetTextWidth, retweetTextHeight + 4);
         top += retweetTextHeight;
         top += 10;
+        
+        if (_status.retweetedStatus.thumbnailImageUrl) {
+            _retweetImageRect = CGRectMake(20, top, 34, 34);
+            top += 34;
+            top += 10;
+        }
+        
         _retweetRect.size.height = top - _retweetRect.origin.y;
     }
     top += 10;
+    if (_status.thumbnailImageUrl) {
+        _tweetImageRect = CGRectMake(20, top, 34, 34);
+        top += 34;
+        top += 10;
+    }
     _tweetRect.size.height = top - _tweetRect.origin.y;
     height = top + 7;
     _size = CGSizeMake(width, height);

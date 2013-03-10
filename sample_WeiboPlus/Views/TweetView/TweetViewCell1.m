@@ -19,6 +19,9 @@
 
 @implementation TweetViewCell1
 
+@synthesize tweetTextLayer = _tweetTextLayer;
+@synthesize delegate = _delegate;
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -73,7 +76,7 @@
     layer.frame = CGRectMake(10, 10, 34, 34);
     layer.masksToBounds = YES;
     layer.rasterizationScale = [[UIScreen mainScreen] scale];
-    layer.drawsAsynchronously = YES;
+    //layer.drawsAsynchronously = YES;
     return layer;
 }
 
@@ -83,7 +86,7 @@
     layer.wrapped = YES;
     layer.rasterizationScale = [[UIScreen mainScreen] scale];
     layer.contentsScale = [[UIScreen mainScreen] scale];
-    layer.drawsAsynchronously = YES;
+    //layer.drawsAsynchronously = YES;
     layer.foregroundColor = [UIColor colorWithWhite:187/255.f alpha:1.0].CGColor;
     layer.fontSize = 11;
     NSDictionary *actions = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNull null], @"contents", nil];
@@ -214,6 +217,35 @@
 
 }
 */
+
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSLog(@"touchesEnded This works...");
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [touch locationInView:self];
+    //_tweetTextLayer.delegate = self.delegate;
+    [_tweetTextLayer touchesEndedWithLocation:point];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSLog(@"touchesBegan ...");
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [touch locationInView:self];
+    [_tweetTextLayer touchesBeganWithLocation:point];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSLog(@"touchesMoved ...");
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [touch locationInView:self];
+    [_tweetTextLayer touchesMovedWithLocation:point];
+}
+
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSLog(@"touchesCancelled ...");
+}
+
 
 
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HomeViewController.h"
+#import "ListViewController.h"
 #import "MentionViewController.h"
 #import "DiscoverViewController.h"
 #import "ProfileViewController.h"

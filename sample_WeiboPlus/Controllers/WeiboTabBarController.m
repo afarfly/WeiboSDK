@@ -28,6 +28,9 @@
     HomeViewController *homeViewController = [[[HomeViewController alloc]initWithNibName:nil bundle:nil] autorelease];
     UINavigationController *homeNavicationController = [[[UINavigationController alloc]initWithRootViewController:homeViewController] autorelease];
     
+    ListViewController *listViewController = [[[ListViewController alloc]initWithNibName:nil bundle:nil] autorelease];
+    UINavigationController *listNavicationController = [[[UINavigationController alloc]initWithRootViewController:listViewController] autorelease];
+    
     MentionViewController *mentionViewController = [[[MentionViewController alloc]initWithNibName:nil bundle:nil] autorelease];
     UINavigationController *mentionNavicationController = [[[UINavigationController alloc]initWithRootViewController:mentionViewController] autorelease];
     
@@ -39,7 +42,8 @@
     
     self.viewControllers = [NSArray arrayWithObjects:
                             homeNavicationController,
-                            mentionNavicationController,
+                            listNavicationController,
+                            //mentionNavicationController,
                             discoverNavicationController,
                             profileNavicationController,
                             nil];

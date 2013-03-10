@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "TimelineQuery.h"
-#import "TweetViewCell1.h"
+#import "TweetViewCell.h"
 #import "TweetViewCellLayout.h"
 
 #import "ProfileViewController.h"
 
-@interface HomeViewController : UITableViewController {
+@interface ListViewController : UITableViewController {
     NSMutableArray *_statuses;
 }
 

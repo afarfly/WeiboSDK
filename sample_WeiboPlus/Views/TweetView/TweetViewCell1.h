@@ -13,6 +13,10 @@
 #import "Images.h"
 #import "TweetLayer.h"
 
+#import "HomeViewController.h"
+
+@protocol TweetViewCell1Delegate <NSObject>
+@end
 
 @interface TweetViewCell1 : ABTableViewCell {
     TweetViewCellLayout *_layout;
@@ -32,9 +36,22 @@
     TweetLayer *_retweetAuthorLayer;
     CATextLayer *_tweetTimeLayer;
     CATextLayer *_retweetTimeLayer;
+    
+    id<TweetViewCell1Delegate> _delegate;
 }
 
+@property (nonatomic, retain) TweetLayer *tweetTextLayer;
 @property (nonatomic, retain) TweetViewCellLayout *layout;
+
+@property (nonatomic, assign) id<TweetViewCell1Delegate> delegate;
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event;
 
 
 @end

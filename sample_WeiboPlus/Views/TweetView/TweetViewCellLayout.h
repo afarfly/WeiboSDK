@@ -19,6 +19,8 @@
     
     CGRect _tweetAuthorProfileImageRect;
     CGRect _retweetAuthorProfileImageRect;
+    CGRect _tweetImageRect;
+    CGRect _retweetImageRect;
     CGRect _tweetAuthorTextRect;
     CGRect _retweetAuthorTextRect;
     CGRect _tweetTimeTextRect;
@@ -39,6 +41,8 @@
 
 @property (nonatomic, readonly) CGRect tweetAuthorProfileImageRect;
 @property (nonatomic, readonly) CGRect retweetAuthorProfileImageRect;
+@property (nonatomic, readonly) CGRect tweetImageRect;
+@property (nonatomic, readonly) CGRect retweetImageRect;
 @property (nonatomic, readonly) CGRect tweetAuthorTextRect;
 @property (nonatomic, readonly) CGRect retweetAuthorTextRect;
 @property (nonatomic, readonly) CGRect tweetTimeTextRect;

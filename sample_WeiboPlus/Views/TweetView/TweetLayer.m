@@ -20,7 +20,7 @@
         self.wrapped = YES;
         self.rasterizationScale = [[UIScreen mainScreen] scale];
         self.contentsScale = [[UIScreen mainScreen] scale];
-        self.drawsAsynchronously = YES;
+        //self.drawsAsynchronously = YES;
         
         _activeLinkBackgroundLayers = [[NSMutableArray array] retain];
     }
@@ -195,6 +195,7 @@
 }
 
 - (BOOL)touchesEndedWithLocation:(CGPoint)point {
+    NSLog(@"touchesEndedWithLocation click works...");
     TweetLink *link = [self linkAtPoint:point];
     if (self.activeLink && self.activeLink == link) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(tweetLayer:didSelectLinkWithTweetLink:)]) {
